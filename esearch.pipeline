@@ -1,0 +1,72 @@
+{
+  "description": "Customizable ingest pipeline for the 'RAG en Acción' index",
+  "version": 1,
+  "processors": [
+    {
+      "set": {
+        "field": "text",
+        "copy_from": "body_content"
+      }
+    },
+    {
+      "set": {
+        "field": "metadata.url",
+        "copy_from": "url"
+      }
+    },
+    {
+      "set": {
+        "field": "metadata.title",
+        "copy_from": "title"
+      }
+    },
+    {
+      "set": {
+        "field": "metadata.addedToDB",
+        "copy_from": "last_crawled_at"
+      }
+    },
+    {
+      "set": {
+        "field": "metadata.meta_description",
+        "copy_from": "meta_description"
+      }
+    },
+    {
+      "remove": {
+        "field": [
+          "additional_urls",
+          "domains",
+          "links",
+          "url_path_dir2",
+          "url_path",
+          "url_path_dir1",
+          "url_path_dir3",
+          "body_content",
+          "url_port",
+          "url_host",
+          "headings",
+          "url_scheme",
+          "title",
+          "last_crawled_at",
+          "is_truncated",
+          "meta_description",
+          "main",
+          "url"
+        ],
+        "ignore_missing": true
+      }
+    },
+    {
+      "inference": {
+        "model_id": ".multilingual-e5-small_linux-x86_64",
+        "input_output": [
+          {
+            "input_field": "text",
+            "output_field": "vector"
+          }
+        ]
+      }
+    }
+  ]
+}
