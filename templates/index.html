@@ -1,19 +1,23 @@
 <head>
     <title>{{ title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-
+</head>
 <body>
+    <div class="background-image"></div>
     <div class="App">
         <header class="App-header">
-            <img src="{{ url_for('static', filename='Octocat.png') }}" class="App-logo" alt="logo" />
             <p>
-                GitHub Codespaces <span class="heart">♥️</span> Flask
-            </p>
-            <p class="small">
-                Edit <code>templates/index.html</code> and refresh to see your changes!
+                {{ message }}
             </p>
         </header>
+        <div id="chat">
+            <div id="messages"></div>
+            <form id="chat-form">
+                <input type="text" id="message-input" placeholder="Type your message here..." required>
+                <button type="submit">Send</button>
+            </form>
+        </div>
     </div>
+    <script src="{{ url_for('static', filename='chat.js') }}"></script>
 </body>
-
 </html>

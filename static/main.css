@@ -1,45 +1,80 @@
 body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-        sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-        monospace;
+    padding: 0;
+    position: relative;
 }
 
 .App {
-    text-align: center;
-}
-
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
-
-.App-header {
-    background-color: #282c34;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+.App-header {
+    background-color: rgba(40, 44, 52, 0.8);
+    /* Fondo semi-transparente */
+    padding: 20px;
     color: white;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    z-index: 2;
 }
 
-.App-link {
-    color: #61dafb;
+#chat {
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Fondo semi-transparente */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
 }
 
-.heart {
-    color: #ff0000;
+#messages {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 20px;
 }
 
-.small {
-    font-size: 0.75rem;
+.message {
+    background-color: #e1ffc7;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+}
+
+#chat-form {
+    display: flex;
+}
+
+#message-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
 }
