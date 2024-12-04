@@ -5,7 +5,8 @@
     {
       "set": {
         "field": "text",
-        "copy_from": "body_content"
+        "copy_from": "body_content",
+        "override": false
       }
     },
     {
