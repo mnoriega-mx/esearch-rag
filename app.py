@@ -5,7 +5,7 @@ import os
 
 
 es_client = Elasticsearch(
-    "https://1e41b810031542e193f1e4ac1c67d3b5.us-central1.gcp.cloud.es.io:443",
+    os.environ["ES_ENDPOINT"],
     api_key=os.environ["ES_API_KEY"]
 )
       
@@ -13,7 +13,7 @@ openai_client = OpenAI(
     api_key=os.environ["OPENAI_API_KEY"],
 )
 index_source_fields = {
-    "search-clip-web": [
+    os.environ["ES_INDEX_NAME"]: [
         "body_content",
         "text"
     ]
@@ -43,7 +43,7 @@ def get_elasticsearch_results(query):
         },
         "size": 3
     }
-    result = es_client.search(index="search-clip-web", body=es_query)
+    result = es_client.search(index=os.environ["ES_INDEX_NAME"], body=es_query)
     return result["hits"]["hits"]
 
 def create_openai_prompt(results):
