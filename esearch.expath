@@ -1,0 +1,1 @@
+//main[not(@style)]/*[not(self::section[@class='section_calculator-calculator']) and not(self::section[@class='component_product-topbar card-down-shadow']) and not(self::div[@class='slider-top-bar'])]
